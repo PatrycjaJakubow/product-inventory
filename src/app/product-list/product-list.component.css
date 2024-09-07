@@ -1,0 +1,24 @@
+h2 { 
+  color: red;
+  text-align: center;
+  margin-top: 20px;
+}
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+  mat-toolbar { 
+    font-family: "Oswald";
+  }
+
+  .demo-table {
+    width: 100%;
+  }
+  
+  .demo-button-container {
+    padding-bottom: 16px;
+  }
+  
+  .demo-button + .demo-button {
+    margin-left: 8px;
+  }
