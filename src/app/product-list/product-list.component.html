@@ -1,14 +1,16 @@
 <mat-toolbar>
-    <span>Product Inventory</span>
+    <span>productinventory</span>
   </mat-toolbar>
-  
-  <div class="demo-button-container">
-    <button mat-raised-button (click)="addData()" class="demo-button">Add data</button>
-  </div>
-  <div class="demo-button-container">
-    <button mat-raised-button (click)="openDialog()" class="demo-button">Add new product</button>
-  </div>
-  
+  <div class="container">
+    <div class="row buttons">
+        <div class="demo-button-container">
+            <button mat-raised-button (click)="addData()" class="demo-button col-auto">Add data</button>
+        </div>
+        <div class="demo-button-container">
+            <button mat-raised-button (click)="openDialog()" class="demo-button col-auto">Add new product</button>
+        </div>
+    </div>
+    </div>
   <table mat-table [dataSource]="dataSource" matSort (matSortChange)="sortData()" class="mat-elevation-z8 demo-table">
     <!-- Product Name Column -->
     <ng-container matColumnDef="name">
