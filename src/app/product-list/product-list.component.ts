@@ -1,4 +1,5 @@
-import { Component, ViewChild, OnInit, Inject } from '@angular/core';
+
+import { Component, ViewChild, OnInit, Inject, ViewEncapsulation } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -6,7 +7,7 @@ import { MatTable, MatTableModule, MatTableDataSource } from '@angular/material/
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatOptionModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
@@ -23,6 +24,7 @@ import {
   MatDialogTitle,
 } from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
+
 
 export interface DialogData {
   id: number,
@@ -51,10 +53,13 @@ export interface DialogData {
     MatOptionModule,
     MatInputModule,
     MatSelectModule,
-    MatOptionModule
+    MatOptionModule,
+    ReactiveFormsModule,
+    
   ],
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css'],
+  // encapsulation: ViewEncapsulation.None, // Disable encapsulation
 })
 export class ProductListComponent implements OnInit {
   products: any[] = [];
@@ -83,9 +88,6 @@ export class ProductListComponent implements OnInit {
       }
     });
   }
-
-
-
 
   ngOnInit(): void {
     this.loadProducts();
@@ -170,10 +172,14 @@ export class ProductListComponent implements OnInit {
       MatDialogClose,
       MatOptionModule,
       FormsModule,
-      MatSelectModule
+      MatSelectModule,
+  ReactiveFormsModule,
+  CommonModule
     ],
+    styleUrls: ['./product-list.component.css'],
   })
   export class DialogNewProduct {
+    
     constructor(
       public dialogRef: MatDialogRef<DialogNewProduct>,
       @Inject(MAT_DIALOG_DATA) public data: DialogData
@@ -182,4 +188,10 @@ export class ProductListComponent implements OnInit {
     onNoClick(): void {
       this.dialogRef.close();
     }
+    productForm = new FormGroup({
+      name: new FormControl('', Validators.required),
+      category: new FormControl('', Validators.required),
+      price: new FormControl('', Validators.required),
+    });
+
   }

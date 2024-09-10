@@ -1,18 +1,28 @@
 <h2 mat-dialog-title>Add New Product</h2>
+<form [formGroup]="productForm">
 <mat-dialog-content>
   <mat-form-field>
     <mat-label>Name:</mat-label>
-    <input matInput [(ngModel)]="data.name">
+    <input matInput [(ngModel)]="data.name" formControlName="name" required>
+    <mat-error *ngIf="productForm.get('name')?.hasError('required')">
+        First name is required
+      </mat-error>
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Category:</mat-label>
-    <input matInput [(ngModel)]="data.category">
+    <input matInput [(ngModel)]="data.category" formControlName="category" required>
+    <mat-error *ngIf="productForm.get('category')?.hasError('required')">
+        Category is required
+      </mat-error>
   </mat-form-field>
 
   <mat-form-field>
     <mat-label>Price:</mat-label>
-    <input matInput type="number" [(ngModel)]="data.price">
+    <input matInput type="number" [(ngModel)]="data.price" formControlName="price" required>
+    <mat-error *ngIf="productForm.get('price')?.hasError('required')">
+        Price is required
+      </mat-error>
   </mat-form-field>
 
   <mat-form-field>
@@ -25,6 +35,8 @@
 </mat-dialog-content>
 
 <mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Cancel</button>
-  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Add</button>
+  <button mat-button (click)="onNoClick()" class="dialog-button cancel-button">Cancel</button>
+
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial class="dialog-button add-button">Add</button>
 </mat-dialog-actions>
+</form>

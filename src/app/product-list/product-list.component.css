@@ -5,15 +5,49 @@ table {
   background-clip: padding-box, border-box;
   margin: 20px auto;
   }
- 
+  
+  .dialog-button {
+
+    background-clip: content-box, border-box;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    color: white;
+    
+    /* color: white; */
+  }
+
+  .add-button {
+     background: linear-gradient(135deg, #f34079 40%, #fc894d), linear-gradient(135deg, #f34079 40%, #fc894d);
+  }
+  .add-button:hover {
+  background: linear-gradient(135deg, #fc894d 40%,  #f34079 ), linear-gradient(135deg, #fc894d, #f34079 40%)}
+
+  .cancel-button {
+    background: linear-gradient(135deg, #f34079 40%, #fc894d), linear-gradient(135deg, #f34079 40%, #fc894d);
+  }
+
+  .cancel-button:hover {
+    background: linear-gradient(135deg, #fc894d 40%, #f34079 ), linear-gradient(135deg, #fc894d 40%, #f34079 );
+ }
+
+ mat-dialog-content {
+  display: grid;
+ }
+ mat-dialog-actions {
+  justify-content: space-between;
+ }
   mat-paginator {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: adds a slight shadow for depth */
   }
 
+
+
 .example-spacer {
     flex: 1 1 auto;
   }
-
+  /* .mat-mdc-dialog-actions  {
+    background-color: #F5576B !important;
+  } */
   .buttons{
     display: flex;
   }
