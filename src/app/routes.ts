@@ -1,5 +1,5 @@
 import { Routes } from "@angular/router";
-import { AddEditProductComponent } from "./add-edit-product/add-edit-product.component";
+import { AddEditProductComponent } from "./edit-product/edit-product.component";
 import { ProductListComponent } from "./product-list/product-list.component";
 
 const routeConfig: Routes = [

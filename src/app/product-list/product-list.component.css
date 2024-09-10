@@ -29,18 +29,25 @@ table {
   .cancel-button:hover {
     background: linear-gradient(135deg, #fc894d 40%, #f34079 ), linear-gradient(135deg, #fc894d 40%, #f34079 );
  }
+ 
+ mat-icon {
+  color: #f34079; /* Icon color */
+}
 
  mat-dialog-content {
   display: grid;
  }
  mat-dialog-actions {
   justify-content: space-between;
+  padding: 24px;
  }
   mat-paginator {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: adds a slight shadow for depth */
   }
 
-
+  .mat-mdc-progress-spinner .mdc-circular-progress__indeterminate-circle-graphic {
+    stroke: #fc894d !important;
+  }
 
 .example-spacer {
     flex: 1 1 auto;

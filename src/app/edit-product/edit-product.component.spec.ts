@@ -1,8 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AddEditProductComponent } from './add-edit-product.component';
+import { AddEditProductComponent } from './edit-product.component';
 
-describe('AddEditProductComponent', () => {
+describe('EditProductComponent', () => {
   let component: AddEditProductComponent;
   let fixture: ComponentFixture<AddEditProductComponent>;
 

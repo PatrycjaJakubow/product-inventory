@@ -24,6 +24,8 @@ import {
   MatDialogTitle,
 } from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { AddEditProductComponent } from "../edit-product/edit-product.component";
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 export interface DialogData {
@@ -55,13 +57,16 @@ export interface DialogData {
     MatSelectModule,
     MatOptionModule,
     ReactiveFormsModule,
-    
-  ],
+    AddEditProductComponent,
+    MatProgressSpinnerModule
+
+],
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css'],
   // encapsulation: ViewEncapsulation.None, // Disable encapsulation
 })
 export class ProductListComponent implements OnInit {
+  isLoading = false;
   products: any[] = [];
   displayedColumns: string[] = ['name', 'category', 'price', 'stockStatus', 'edit', 'delete'];
   dataSource = new MatTableDataSource<any>();
@@ -98,12 +103,16 @@ export class ProductListComponent implements OnInit {
      }
     
   loadProducts() {
+    this.isLoading = true;
+    setTimeout(() => {
     this.productService.getProducts().subscribe((products: any[]) => {
       this.products = products;
       this.dataSource.data = products;  // Update the dataSource
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
+      this.isLoading = false;
     });
+  }, 200000);
   }
 
     addData() {
@@ -113,12 +122,12 @@ export class ProductListComponent implements OnInit {
        
     }
   
-    toggleEditMode(element: any) {
-    element.editMode = !element.editMode;
+    toggleEditMode(product: any) {
+    product.editMode = !product.editMode;
      }
       
-    saveRow(element: any) {
-      element.editMode = false; // Turn off edit mode after saving
+    saveRow(product: any) {
+      product.editMode = false; // Turn off edit mode after saving
        this.table.renderRows(); // Update the table view
      }
 
