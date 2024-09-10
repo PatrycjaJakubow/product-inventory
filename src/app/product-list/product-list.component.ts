@@ -13,7 +13,6 @@ import { MatOptionModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { ProductService } from '../product.service';
-
 import {
   MAT_DIALOG_DATA,
   MatDialog,
@@ -63,7 +62,6 @@ export interface DialogData {
 ],
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css'],
-  // encapsulation: ViewEncapsulation.None, // Disable encapsulation
 })
 export class ProductListComponent implements OnInit {
   isLoading = false;
@@ -74,12 +72,7 @@ export class ProductListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-
- 
-
-
   constructor(private productService: ProductService, public dialog: MatDialog) {}
-
   openDialog(): void {
     const dialogRef = this.dialog.open(DialogNewProduct, {
       width: '400px',
@@ -88,8 +81,8 @@ export class ProductListComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.dataSource.data = [...this.dataSource.data, result]; // Add the new product to the dataSource
-        this.table.renderRows();  // Re-render table to reflect changes
+        this.dataSource.data = [...this.dataSource.data, result];
+        this.table.renderRows();  
       }
     });
   }
@@ -107,18 +100,18 @@ export class ProductListComponent implements OnInit {
     setTimeout(() => {
     this.productService.getProducts().subscribe((products: any[]) => {
       this.products = products;
-      this.dataSource.data = products;  // Update the dataSource
+      this.dataSource.data = products;  
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
       this.isLoading = false;
     });
-  }, 200000);
+  }, 1000);
   }
 
     addData() {
       const randomElementIndex = Math.floor(Math.random() * this.products.length);
       const newData = [...this.dataSource.data, this.products[randomElementIndex]];
-      this.dataSource.data = newData; // Explicitly reassign to trigger change detection
+      this.dataSource.data = newData;
        
     }
   
@@ -127,8 +120,8 @@ export class ProductListComponent implements OnInit {
      }
       
     saveRow(product: any) {
-      product.editMode = false; // Turn off edit mode after saving
-       this.table.renderRows(); // Update the table view
+      product.editMode = false; 
+       this.table.renderRows();
      }
 
 
@@ -138,15 +131,14 @@ export class ProductListComponent implements OnInit {
   }
 
   sortData() {
-    const data = this.dataSource.data.slice(); // Create a copy of the data
+    const data = this.dataSource.data.slice();
     if (!this.sort.active || this.sort.direction === '') {
       this.dataSource.data = data;
       return;
     }
   
-    // Sort the data based on the active column and direction
     this.dataSource.data = data.sort((a, b) => {
-      const isAsc = this.sort.direction === 'asc'; // Determine sort direction
+      const isAsc = this.sort.direction === 'asc'; 
       switch (this.sort.active) {
         case 'name':
           return compare(a.name, b.name, isAsc);

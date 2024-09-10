@@ -4,9 +4,9 @@ import { ProductListComponent } from "./product-list/product-list.component";
 
 const routeConfig: Routes = [
     {
-      path: 'add-edit-product',
+      path: 'edit-product',
       component: AddEditProductComponent,
-      title: 'Add Edit Product',
+      title: 'Edit Product',
     },
     {
         path:'product-list',

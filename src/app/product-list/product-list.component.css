@@ -1,5 +1,53 @@
+mat-icon {
+  color: #f34079;
+}
+
+ mat-dialog-content {
+  display: grid;
+ }
+ mat-dialog-actions {
+  justify-content: space-between;
+  padding: 24px;
+ }
+ mat-toolbar { 
+  margin-bottom: 10px;
+  color: #F5576B;
+}
+
+mat-paginator {
+  background-image: linear-gradient(135deg, #f34079 40%, #fc894d);
+  border: 0;
+  box-sizing: border-box;
+  color: #fff !important;
+  cursor: pointer;
+  display:flex;
+  flex-direction: column;
+  font-family: "Codec cold", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  height: 44px;
+  justify-content: center;
+  letter-spacing: .4px;
+  line-height: 1;
+  max-width:100%;
+  padding-top: 3px;
+  text-decoration: none;
+  text-transform: uppercase;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+mat-spinner {
+  margin: 20px auto;
+}
+
+.title {
+ color:#f34079 !important;
+ font-size: x-large;
+}
 table {
-  border: 3px solid transparent; /* Set an initial transparent border */
+  border: 3px solid transparent; 
   background-image: linear-gradient(white, white), linear-gradient(135deg, #f34079 40%, #fc894d);
   background-origin: border-box;
   background-clip: padding-box, border-box;
@@ -7,13 +55,10 @@ table {
   }
   
   .dialog-button {
-
     background-clip: content-box, border-box;
     border: 2px solid transparent;
     border-radius: 4px;
     color: white;
-    
-    /* color: white; */
   }
 
   .add-button {
@@ -29,45 +74,24 @@ table {
   .cancel-button:hover {
     background: linear-gradient(135deg, #fc894d 40%, #f34079 ), linear-gradient(135deg, #fc894d 40%, #f34079 );
  }
- 
- mat-icon {
-  color: #f34079; /* Icon color */
-}
-
- mat-dialog-content {
-  display: grid;
- }
- mat-dialog-actions {
-  justify-content: space-between;
-  padding: 24px;
- }
-  mat-paginator {
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: adds a slight shadow for depth */
-  }
 
   .mat-mdc-progress-spinner .mdc-circular-progress__indeterminate-circle-graphic {
-    stroke: #fc894d !important;
+    stroke: #fc894d !important
+    ;
   }
 
 .example-spacer {
     flex: 1 1 auto;
   }
-  /* .mat-mdc-dialog-actions  {
-    background-color: #F5576B !important;
-  } */
+
   .buttons{
     display: flex;
   }
-  mat-toolbar { 
-    margin-bottom: 10px;
-    color: #F5576B;
-  }
 
-  mat-paginator {
-    position: relative; /* Ensure the pseudo-element is positioned correctly */
-    z-index: 1; /* Bring the paginator content on top of the pseudo-element */
-  }
-  
+.mat-mdc-progress-spinner { 
+  --mdc-circular-progress-active-indicator-color: #fc894d
+}
+
   .demo-table {
     width: 100%;
   }
@@ -76,10 +100,6 @@ table {
     padding-bottom: 14px;
   }
   
-  /* .demo-button + .demo-button {
-    margin-left: 8px;
-  } */
-
   .demo-button {
 
   align-items: center;
@@ -103,32 +123,6 @@ table {
   padding-right: 20px;
   padding-top: 3px;
   margin: 5px 10px -15px;
-  text-decoration: none;
-  text-transform: uppercase;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-
-mat-paginator {
-  background-image: linear-gradient(135deg, #f34079 40%, #fc894d);
-  border: 0;
-  box-sizing: border-box;
-  /* color: #fff; */
-  color: #fff !important;
-  cursor: pointer;
-  display:flex;
-  flex-direction: column;
-  font-family: "Codec cold", sans-serif;
-  font-size: 16px;
-  font-weight: 700;
-  height: 44px;
-  justify-content: center;
-  letter-spacing: .4px;
-  line-height: 1;
-  max-width:100%;
-  padding-top: 3px;
   text-decoration: none;
   text-transform: uppercase;
   user-select: none;

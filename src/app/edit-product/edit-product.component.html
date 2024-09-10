@@ -1,8 +1,6 @@
-<!-- Toggle between edit and save buttons based on product.editMode -->
 <button mat-icon-button *ngIf="!product.editMode; else saveButton" (click)="toggleEditMode()">
     <mat-icon>edit</mat-icon>
   </button>
-  
   <ng-template #saveButton>
     <button mat-button color="primary" (click)="saveRow()">Save</button>
   </ng-template>
