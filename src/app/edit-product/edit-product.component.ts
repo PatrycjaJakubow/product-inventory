@@ -25,5 +25,6 @@ export class AddEditProductComponent {
 
      saveRow() {
      this.save.emit(this.product);
+     console.log(this.product.id)
      }
 }

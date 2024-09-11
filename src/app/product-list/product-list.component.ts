@@ -112,7 +112,6 @@ export class ProductListComponent implements OnInit {
       const randomElementIndex = Math.floor(Math.random() * this.products.length);
       const newData = [...this.dataSource.data, this.products[randomElementIndex]];
       this.dataSource.data = newData;
-       
     }
   
     toggleEditMode(product: any) {
@@ -128,6 +127,7 @@ export class ProductListComponent implements OnInit {
   removeProduct(id: number) {
     this.products = this.products.filter(product => product.id !== id);
     this.dataSource.data = this.products;
+    console.log('Product with ID ' + id + ' was removed.')
   }
 
   sortData() {
